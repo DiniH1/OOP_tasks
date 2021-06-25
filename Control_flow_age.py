@@ -32,10 +32,27 @@ class Identidy:
             return "You are free!"
 
 
-user_prompt = True
-age = int(input("How old are you? "))
 
 
-you = Identidy(age, license)
-print(you.able_to_vote())
+while True:
+    age = input("How old are you? ")
+    if age.isdigit() == False:
+        print("Invalid inout. Please enter a number!")
+        age = input("How old are you?")
+    break
+while True:
+    answer = input("Do you have a driving license? Enter 'y' or 'n' or enter 'exit' to exit ")
+    if answer.lower() == "y":
+        license = True
+        break
+    elif answer.lower() == 'n':
+        license = False
+        break
+    elif answer == "exit":
+        break
+    else:
+        print("Invalid input! enter 'y' 'n' or 'exit' ")
 
+person = Identidy(int(age), license)
+print(person.able_to_drink())
+print(person.to_drive())
